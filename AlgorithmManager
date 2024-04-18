@@ -1,0 +1,37 @@
+from algorithm_manager import AlgorithmManager
+
+class Algorithm:
+    def __init__(self, name, version):
+        self.name = name
+        self.version = version
+        self.kpd = 0
+        self.parameter1 = 0
+        self.parameter2 = 0
+
+# Створення менеджера алгоритмів
+manager = AlgorithmManager()
+
+# Створення алгоритмів
+algorithm1 = manager.create_algorithm("Algorithm1", 1.0)
+algorithm2 = manager.create_algorithm("Algorithm2", 2.0)
+algorithm3 = manager.create_algorithm("Algorithm3", 1.5)
+
+# Аналіз КПД
+manager.analyze_kpd()
+
+# Регулювання параметрів
+manager.regulate_parameters()
+
+# Виведення результатів
+for algorithm in manager.algorithm_base:
+    print(f"{algorithm.name} (v{algorithm.version}): KPD - {algorithm.kpd}, Parameter1 - {algorithm.parameter1}, Parameter2 - {algorithm.parameter2}")
+
+# Виведення аналітики
+print("Analytics Base:")
+for data in manager.analytics_base:
+    print(data)
+
+# Виведення імпульсного аналізу
+print("Impulse Analytics Base:")
+for data in manager.impulse_analytics_base:
+    print(data)
